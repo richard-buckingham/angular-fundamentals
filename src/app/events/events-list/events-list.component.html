@@ -1,6 +1,10 @@
 <div>
   <h1>Upcoming Angular Events</h1>
-  <app-event-thumbnail 
+  <!-- declaring a template variable #thumbnail -->
+  <app-event-thumbnail #thumbnail
       [event]="event1">
   </app-event-thumbnail>
+  <button class="btn btn-primary" 
+          (click)="thumbnail.logFoo()">log me some foo</button>
+          {{ thumbnail.someProperty}}
 </div>
