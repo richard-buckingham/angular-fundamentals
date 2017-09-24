@@ -21,8 +21,4 @@ export class EventsListComponent {
     }
   };
 
-  handleEventClicked(event) {
-    console.log('handlng the click event in the parent component');
-    console.log('received :', event);
-  }
 }
