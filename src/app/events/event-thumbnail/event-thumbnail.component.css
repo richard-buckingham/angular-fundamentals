@@ -8,3 +8,9 @@
 .thumbnail {
     min-height: 210px;
 }
+.red {
+    color: red !important;
+}
+.bold {
+    font-weight: bold !important;
+}
