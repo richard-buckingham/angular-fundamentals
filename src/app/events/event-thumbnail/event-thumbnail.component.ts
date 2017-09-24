@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 
 @Component({
@@ -7,7 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./event-thumbnail.component.css']
 })
 export class EventThumbnailComponent {
-@Input() event: any;
+  @Input() event: any;
+  @Output() eventClick = new EventEmitter();
 
+  handleClick() {
+    console.log('raising an event in the child component');
+    this.eventClick.emit(this.event.name);
+  }
 
 }
