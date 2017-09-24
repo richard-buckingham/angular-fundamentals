@@ -8,10 +8,5 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class EventThumbnailComponent {
   @Input() event: any;
-  someProperty: any = 'a string value set in the child component...';
-
-  logFoo() {
-    console.log('foo from the child component');
-  }
 
 }
