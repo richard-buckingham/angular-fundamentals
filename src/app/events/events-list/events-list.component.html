@@ -1,7 +1,11 @@
 <div>
   <h1>Upcoming Angular Events</h1>
-  <!-- declaring a template variable #thumbnail -->
-  <app-event-thumbnail #thumbnail
-      [event]="event1">
-  </app-event-thumbnail>
+  <div class="row">
+    <div  class="col-md-5" 
+          *ngFor="let event of events">
+      <app-event-thumbnail  
+          [event]="event">
+      </app-event-thumbnail>
+    </div>
+  </div>
 </div>
