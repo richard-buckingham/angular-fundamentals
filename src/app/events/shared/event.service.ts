@@ -1,12 +1,19 @@
 import { Injectable } from '@angular/core';
 
+import { ToastrService } from '../../common/toastr.service';
+
 @Injectable()
 export class EventService {
+
+  constructor(private toastrService: ToastrService) {
+  }
+
   getEvents() {
     return EVENTS;
   }
 
   getEvent(id: number) {
+    this.toastrService.info(`retrieving data for event ${id}`);
     return EVENTS.find(event => event.id === id);
   }
 }
