@@ -21,7 +21,8 @@ export class EventsListComponent implements OnInit {
 
   ngOnInit() {
     this.toastrService.info('requesting events');
-    this.events = this.activatedRoute.snapshot.data['events'];
+    this.events = this.activatedRoute.snapshot.data['eventsStoredInRouter'];
+    this.toastrService.info('retrieved events from router...');
   }
 
 /*
