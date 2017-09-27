@@ -13,7 +13,7 @@ export class EventService {
   }
 
   getEvent(id: number) {
-    this.toastrService.info(`retrieving data for event ${id}`);
+    // this.toastrService.info(`retrieving data for event ${id}`);
     return EVENTS.find(event => event.id === id);
   }
 }
