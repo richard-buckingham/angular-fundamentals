@@ -13,6 +13,7 @@ import { ToastrService } from './common/toastr.service';
 
 import { EventDetailsComponent } from './events/event-details/event-details.component';
 import { EventRouteActivatorService } from './events/event-details/event-route-activator.service';
+import {EventRouteDeactivatorService} from './events/create-event/event-route-deactivator.service';
 
 import { appRoutes } from '../routes';
 
@@ -32,7 +33,8 @@ import { Error404Component } from './errors/error404/error404.component';
     BrowserModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [EventService, ToastrService, EventRouteActivatorService],
+  providers: [EventService, ToastrService,
+              EventRouteActivatorService, EventRouteDeactivatorService],
   bootstrap: [EventsAppComponent]
 })
 export class AppModule { }
