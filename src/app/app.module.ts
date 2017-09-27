@@ -9,6 +9,8 @@ import { EventThumbnailComponent } from './events/event-thumbnail/event-thumbnai
 import { NavbarComponent } from './nav/navbar/navbar.component';
 
 import { EventService } from './events/shared/event.service';
+import {EventListResolverService} from './events/shared//event-list-resolver.service';
+
 import { ToastrService } from './common/toastr.service';
 
 import { EventDetailsComponent } from './events/event-details/event-details.component';
@@ -34,7 +36,8 @@ import { Error404Component } from './errors/error404/error404.component';
     RouterModule.forRoot(appRoutes)
   ],
   providers: [EventService, ToastrService,
-              EventRouteActivatorService, EventRouteDeactivatorService],
+              EventRouteActivatorService, EventRouteDeactivatorService,
+              EventListResolverService],
   bootstrap: [EventsAppComponent]
 })
 export class AppModule { }

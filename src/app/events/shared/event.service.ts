@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/RX';
 
 import { ToastrService } from '../../common/toastr.service';
 
@@ -9,11 +10,18 @@ export class EventService {
   }
 
   getEvents() {
-    return EVENTS;
+    const subject = new Subject();
+    // simulate an async call, add data to the stream after 2000 ms
+    setTimeout(() => {
+      subject.next(EVENTS);
+      subject.complete();
+    }, 2000);
+
+    return subject;
   }
 
   getEvent(id: number) {
-    // this.toastrService.info(`retrieving data for event ${id}`);
+    this.toastrService.info(`retrieving data for event ${id}`);
     return EVENTS.find(event => event.id === id);
   }
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 // declare a local variable so that typescript stops complaining
-// abouth the toastr global variable
+// about the toastr global variable
 declare let toastr;
 
 @Injectable()
@@ -22,10 +22,5 @@ export class ToastrService {
 
   error(message: string, title?: string) {
     toastr.error(message, title);
-  }
-
-  whatever() {
-    console.log('test 123');
-    toastr.success('messahe', 'title');
   }
 }
