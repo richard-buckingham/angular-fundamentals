@@ -11,7 +11,7 @@ export class EventThumbnailComponent {
 
   getStartTimeStyle() {
     if (this.event && this.event.time === '8:00 am') {
-      console.log('getting the start time style');
+      // console.log('getting the start time style');
       return 'red bold';
     }
     return { };
