@@ -7,4 +7,5 @@ export * from './events-app/events-app.component';
 export * from './events-list/events-list.component';
 export * from './shared/event-list-resolver.service';
 export * from './shared/event.service';
+export * from './models/event.model';
 

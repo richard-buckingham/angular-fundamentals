@@ -3,6 +3,7 @@ import { Resolve } from '@angular/router';
 
 import { EventService } from './event.service';
 import { ToastrService } from '../../common/toastr.service';
+import { IEvent } from '../models/event.model';
 
 
 
