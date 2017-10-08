@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../auth.service';
+import { ToastrService } from '../../common/toastr.service';
 
 @Component({
   selector: 'app-profile',
@@ -11,27 +12,46 @@ import { AuthService } from '../auth.service';
 })
 export class ProfileComponent implements OnInit {
   profileForm: FormGroup;
+  private firstName: FormControl;
+  private lastName: FormControl;
 
   constructor(private authService: AuthService,
-              private router: Router) { }
+    private router: Router,
+    private toastr: ToastrService) { }
 
-  ngOnInit() {
-    const firstName = new FormControl(this.authService.currentUser.firstName);
-    const lastName = new FormControl(this.authService.currentUser.lastName);
-    this.profileForm = new FormGroup({
-      firstName: firstName,
-      lastName: lastName
-    });
-  }
+    ngOnInit() {
+      this.firstName = new FormControl(this.authService.currentUser.firstName,
+                                        [Validators.required, Validators.pattern('[a-zA-Z].*')]);
+      this.lastName = new FormControl(this.authService.currentUser.lastName,
+                                        Validators.required);
+
+      this.profileForm = new FormGroup({
+        firstName: this.firstName,
+        lastName: this.lastName
+      });
+    }
 
   cancel() {
     this.router.navigate(['events']);
   }
 
   saveProfile(formValues) {
-    // call method on our auth service
-    this.authService.updateCurrentUser(formValues.firstName, formValues.lastName);
-    this.router.navigate(['events']);
+    if (this.profileForm.valid) {
+      // call method on our auth service
+      this.toastr.success(`this form is valid...`);
+      this.authService.updateCurrentUser(formValues.firstName, formValues.lastName);
+      this.router.navigate(['events']);
+    } else {
+      this.toastr.error(`this form is not valid...`);
+    }
+  }
+
+  validateFirstName() {
+    return this.firstName.valid || this.firstName.untouched;
+  }
+
+  validateLastName() {
+    return this.lastName.valid || this.lastName.untouched;
   }
 
 }

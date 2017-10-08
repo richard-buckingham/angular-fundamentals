@@ -24,6 +24,13 @@ export class EventService {
     this.toastrService.info(`retrieving data for event ${id}`);
     return EVENTS.find(event => event.id === id);
   }
+
+  saveEvent(event: IEvent): void {
+    console.log('saving an event', event);
+    event.id = 999;
+    event.sessions = [];
+    EVENTS.push(event);
+  }
 }
 
 const EVENTS: IEvent[] = [
