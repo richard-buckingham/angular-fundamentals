@@ -11,7 +11,8 @@ import {  EventsAppComponent,
           EventListResolverService,
           EventDetailsComponent,
           EventRouteActivatorService,
-          EventRouteDeactivatorService
+          EventRouteDeactivatorService,
+          CreateSessionComponent
 } from './events/index';
 
 import { NavbarComponent } from './nav/navbar/navbar.component';
@@ -31,7 +32,8 @@ import { appRoutes } from '../routes';
     NavbarComponent,
     EventDetailsComponent,
     CreateEventComponent,
-    Error404Component
+    Error404Component,
+    CreateSessionComponent
   ],
   imports: [
     BrowserModule,
