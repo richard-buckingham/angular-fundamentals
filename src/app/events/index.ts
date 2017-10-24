@@ -9,4 +9,5 @@ export * from './events-list/events-list.component';
 export * from './shared/event-list-resolver.service';
 export * from './shared/event.service';
 export * from './models/event.model';
+export * from './shared/restricted-words.validator';
 
