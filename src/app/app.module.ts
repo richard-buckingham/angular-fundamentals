@@ -22,6 +22,7 @@ import { ToastrService } from './common/toastr.service';
 import { AuthService } from './user/auth.service';
 
 import { appRoutes } from '../routes';
+import { SessionListComponent } from './events/event-details/session-list/session-list.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { appRoutes } from '../routes';
     EventDetailsComponent,
     CreateEventComponent,
     Error404Component,
-    CreateSessionComponent
+    CreateSessionComponent,
+    SessionListComponent
   ],
   imports: [
     BrowserModule,
