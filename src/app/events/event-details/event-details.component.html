@@ -21,6 +21,23 @@
     </div>
   </div>
 
-  <hr />
-  <app-session-list [sessions]="event.sessions"></app-session-list>
+  <hr>
+  
+  <div class="row">
+    <div class="col-md-2">
+      <h3 style="margin:0">Sessions</h3>
+    </div>
+
+    <div class="col-md-2">
+      <a (click)="addSession()">Add Session</a>
+    </div>
+  </div>
+
+  <app-session-list [sessions]="event.sessions"
+                    *ngIf="!addMode"></app-session-list>
+
+  <!-- Bind to the saveNewSession event, and call a method on the parent component -->
+  <app-create-session *ngIf="addMode"
+                      (saveNewSession)="saveNewSession($event)"
+                      (cancelAddSession)="cancelAddSession()"></app-create-session>     
 </div>
