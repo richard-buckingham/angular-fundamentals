@@ -1,0 +1,6 @@
+<div (click)="toggleContent()" class="well pointable">
+  <h4 class="well title">{{title}}</h4>
+  <!-- Whatever content exists within the app-collapsible-well tags 
+        will replace the ng-content tag -->
+        <ng-content *ngIf="visible"></ng-content>
+</div>

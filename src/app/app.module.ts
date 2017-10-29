@@ -23,6 +23,7 @@ import { AuthService } from './user/auth.service';
 
 import { appRoutes } from '../routes';
 import { SessionListComponent } from './events/event-details/session-list/session-list.component';
+import { CollapsibleWellComponent } from './common/collapsible-well/collapsible-well.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { SessionListComponent } from './events/event-details/session-list/sessio
     CreateEventComponent,
     Error404Component,
     CreateSessionComponent,
-    SessionListComponent
+    SessionListComponent,
+    CollapsibleWellComponent
   ],
   imports: [
     BrowserModule,

@@ -8,3 +8,11 @@
 a {
     cursor: pointer;
 }
+
+div .add-session {
+    text-align: right;
+}
+
+div .sessions-header {
+    margin-bottom: 5px;
+}
