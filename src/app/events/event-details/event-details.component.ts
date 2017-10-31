@@ -14,6 +14,7 @@ export class EventDetailsComponent implements OnInit {
 
   event: IEvent;
   addMode: boolean;
+  filterBy: 'all';
 
   constructor(private service: EventService,
               private route: ActivatedRoute) { }
@@ -41,5 +42,7 @@ export class EventDetailsComponent implements OnInit {
     console.log('in cancelAddSession');
     this.addMode = false;
   }
+
+
 
 }
