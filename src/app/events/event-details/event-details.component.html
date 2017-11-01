@@ -49,7 +49,10 @@
     </div>
   </div>
 
-  <app-session-list [sessions]="event.sessions" *ngIf="!addMode"></app-session-list>
+  <app-session-list *ngIf="!addMode"
+                    [sessions]="event.sessions"
+                    [filterBy]="filterBy" 
+                    ></app-session-list>
 
   <!-- Bind to the saveNewSession event, and call a method on the parent component -->
   <app-create-session *ngIf="addMode" (saveNewSession)="saveNewSession($event)" (cancelAddSession)="cancelAddSession()"></app-create-session>
