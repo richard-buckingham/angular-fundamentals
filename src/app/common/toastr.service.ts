@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 
-// declare a local variable so that typescript stops complaining
-// about the toastr global variable
+// declare a local variable so that typescript stops complaining about the toastr global variable
 declare let toastr;
 
+// This is just an injectable class that maps the global toastr api
 @Injectable()
 export class ToastrService {
   constructor() { }

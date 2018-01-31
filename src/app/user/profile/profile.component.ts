@@ -38,11 +38,11 @@ export class ProfileComponent implements OnInit {
   saveProfile(formValues) {
     if (this.profileForm.valid) {
       // call method on our auth service
-      this.toastr.success(`this form is valid...`);
+      this.toastr.success(`profileForm is valid...`);
       this.authService.updateCurrentUser(formValues.firstName, formValues.lastName);
       this.router.navigate(['events']);
     } else {
-      this.toastr.error(`this form is not valid...`);
+      this.toastr.error(`profileForm is not valid...`);
     }
   }
 
