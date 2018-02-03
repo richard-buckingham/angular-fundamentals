@@ -3,6 +3,7 @@ import { Subject, Observable } from 'rxjs/Rx';
 
 import { ToastrService } from '../../common/toastr.service';
 import { IEvent } from '../index';
+import { ISession }  from '../index';
 
 @Injectable()
 export class EventService {
@@ -36,6 +37,35 @@ export class EventService {
     const index = EVENTS.findIndex(x => x.id = event.id);
     EVENTS[index] = event;
   }
+
+  public searchSessions(searchTerm: string) : Observable<ISession[]> {
+
+    var term = searchTerm.toLocaleLowerCase();
+    var results : ISession[] = []
+
+    EVENTS.forEach(event => {
+      //console.log(EVENTS);
+      // find the matching sessions
+      var matchingSessions = event.sessions.filter(session => session.name.toLocaleLowerCase().indexOf(term) > -1);
+      // Add the eventId to the sessions
+      matchingSessions = matchingSessions.map((session:any) => {
+        session.eventId = event.id;
+        return session;
+      })
+      results = results.concat(matchingSessions);
+    })
+    console.log('results = ', results);
+    
+    // cobstruct an observable to return
+    const sessions = new Subject<ISession[]>();
+    setTimeout(() => {
+      sessions.next(results);
+      sessions.complete();
+    }, 500);
+
+    return sessions;
+  }
+
 }
 
 const EVENTS: IEvent[] = [
